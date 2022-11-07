@@ -106,10 +106,24 @@
         <div class="content content-full">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2 text-center text-sm-left">
                 <div class="flex-sm-fill">
-                    <h1 class="h3 font-w700 mb-2">
-                        Main Dashboard
-                    </h1>
 
+                    <h1 class="h3 font-w700 mb-2">
+                        @if(request()->routeIs('dashboard.home'))
+                        {{"Main Dashboard"}}
+                        @elseif (request()->routeIs('categories.*'))
+                        {{"Categories"}}
+                        @elseif (request()->routeIs('products.*'))
+                        {{"Products"}}
+                        @elseif (request()->routeIs('categoryproduct.*'))
+                        {{"Asign Product To Category"}}
+                        @elseif (request()->routeIs('team.*'))
+                        {{"Team"}}
+                        @elseif (request()->routeIs('emails.*'))
+                        {{"Emails"}}
+                        @else
+                        {{"Main Dashboard"}}
+                        @endif
+                    </h1>
                 </div>
             </div>
         </div>

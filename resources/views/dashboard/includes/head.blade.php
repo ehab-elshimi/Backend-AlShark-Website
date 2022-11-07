@@ -31,8 +31,8 @@
 <link rel="stylesheet" id="css-main" href="{{ asset('dashboard/css/oneui.min.css') }}">
 <link rel="stylesheet" id="css-main" href="{{ asset('dashboard/css/stylecustomizedcss.css') }}">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <style>
 
     .box{
@@ -144,10 +144,7 @@
     margin-left:29px;
    }
 </style>
-
-<!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-{{-- <!-- <link rel="stylesheet" id="css-theme" href="{{ asset('dashboard/css/themes/amethyst.min.css') }}"> --> --}}
-<!-- END Stylesheets -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">

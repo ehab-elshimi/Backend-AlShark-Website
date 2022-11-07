@@ -33,7 +33,7 @@ Route::group(['prefix'=>'admin/'],function () {
 
 });
 Route::group(['prefix'=>'admin/','middleware'=>['admin']],function () {
-    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('home');
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard.home');
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('categoryproduct', CategoryProductController::class);

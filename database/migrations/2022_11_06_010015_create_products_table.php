@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('image');
             $table->text('desc');
             $table->text('application');
-            $table->text('main-components');
-            $table->text('blends-with');
+            $table->text('components');
+            $table->text('blends_with');
             $table->text('cautions');
-            $table->string('cas-tsca');
-            $table->string('cas-eninces');
+            $table->string('msds');
+            $table->string('specs');
             $table->timestamps();
         });
     }
@@ -34,6 +34,7 @@ return new class extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         Schema::dropIfExists('products');

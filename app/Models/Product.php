@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Category;
 class Product extends Model
 {
     use HasFactory;
@@ -14,10 +14,14 @@ class Product extends Model
         'image',
         'desc',
         'application',
-        'main-components',
-        'blends-with',
+        'components',
+        'blends_with',
         'cautions',
-        'cas-tsca',
-        'cas-eninces'
+        'msds',
+        'specs'
     ];
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_products');
+    }
 }
