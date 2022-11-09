@@ -59,7 +59,10 @@ class CategoryController extends Controller
     {
         //
     }
-
+    public function show_category(Category $category)
+    {
+        return view('dashboard.pages.categories.show',compact('category'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -78,14 +81,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request,$category)
     {
         $request->validate([
             'name' => 'required',
             'desc' => 'required',
         ]);
 
-        $category->update($request->all());
+        Category::find($category)->update($request->all());
 
         return redirect()->route('categories.index')
                         ->with('success','Category updated successfully');
@@ -99,8 +102,15 @@ class CategoryController extends Controller
      */
     public function destroy($category)
     {
-        $category=Category::where('id',$category)->delete();
+        $categories = Category::all();
+        $count = count($categories);
+        if($count>1){
+            $category=Category::where('id',$category)->delete();
 
-        return redirect()->back();
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('status','can\'t delete all categories, please add "+New Category" to be able to delete this, thanks');
+        }
+
     }
 }

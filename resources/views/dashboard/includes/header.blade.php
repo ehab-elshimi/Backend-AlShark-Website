@@ -115,7 +115,7 @@
                         @elseif (request()->routeIs('products.*'))
                         {{"Products"}}
                         @elseif (request()->routeIs('categoryproduct.*'))
-                        {{"Asign Product To Category"}}
+                        {{"Relations"}}
                         @elseif (request()->routeIs('team.*'))
                         {{"Team"}}
                         @elseif (request()->routeIs('emails.*'))

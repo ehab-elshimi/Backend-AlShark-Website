@@ -4,26 +4,34 @@
     <!-- Basic -->
     <div class="block block-rounded">
         <div class="block-header">
-            <h3 class="block-title">Basic</h3>
+            <h3 class="block-title">Edit</h3>
         </div>
         <div class="block-content block-content-full">
-            <form action="{{  }}" method="POST" enctype="multipart/form-data" onsubmit="return false;">
-                <div class="row push">
-                    <div class="col-lg-4">
-                        <p class="font-size-sm text-muted">
-                            The most often used inputs you know and love
-                        </p>
-                    </div>
-                    <div class="col-lg-8 col-xl-5">
+            <form action="{{ route('categories.update',$category->id) }}" method="POST">
+                @csrf
+                <input type="hidden" name="_method" value="PUT">
+                <div class="row push d-flex justify-content-center">
+                    <div class="">
                         <div class="form-group">
-                            <label for="example-text-input">Text</label>
-                            <input type="text" class="form-control" id="example-text-input" name="example-text-input" placeholder="Text Input">
+                            <label for="example-text-input">category name</label>
+                            <input type="text" class="form-control" id="example-text-input" name="name" placeholder="Text Input" value="{{ $category->name }}">
                         </div>
                         <div class="form-group">
-                            <label for="example-textarea-input">Textarea</label>
-                            <textarea class="form-control" id="example-textarea-input" name="example-textarea-input" rows="4" placeholder="Textarea content.."></textarea>
+                            <label for="example-textarea-input">description</label>
+                            <textarea class="form-control" id="example-textarea-input" name="desc" rows="4" placeholder="Textarea content..">{{ $category->desc }}</textarea>
                         </div>
                     </div>
+                    <div class="row push">
+                        <div class="">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-icon float-right">
+                                    <i class="fa fa-fw fa-save"></i>
+                                </button>
+                                <a href="{{ route('categories.index') }}" class="btn btn-secondary btn-icon float-right mr-3">
+                                    <i class="fa fa-arrow-left text-light"></i>
+                                </a>
+                            </div>
+                        </div>
                 </div>
             </form>
         </div>

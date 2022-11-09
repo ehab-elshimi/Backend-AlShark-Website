@@ -100,6 +100,11 @@ class ProductController extends Controller
         $product = Product::where('id',$id)->first();
         return view('dashboard.pages.products.show',compact('product'));
     }
+    public function show_product(Product $product)
+    {
+        return view('dashboard.pages.products.show',compact('product'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

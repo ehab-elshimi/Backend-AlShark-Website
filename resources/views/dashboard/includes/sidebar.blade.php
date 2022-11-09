@@ -519,63 +519,44 @@
 
                 <li class="nav-main-heading">User Interface</li>
                 <li class="nav-main-item">
+                    <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('categories.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
+                        <i class="nav-main-link-icon si si-energy"></i>
+                        <span class="nav-main-link-name">Categories</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                         <i class="nav-main-link-icon si si-badge"></i>
-                        <span class="nav-main-link-name">products</span>
+                        <span class="nav-main-link-name">Products</span>
                     </a>
-                    <ul class="nav-main-submenu">
+                    {{-- class="nav-main-submenu" --}}
+                    <ul>
                         <li class="nav-main-item">
                             <a class="nav-main-link" style="text-decoration:none" href="{{ route('products.index') }}">
-                                <span class="nav-main-link-name">All products</span>
+                                <span class="nav-main-link-name">All Products</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" style="text-decoration:none" href="{{ route('products.create') }}">
-                                <span class="nav-main-link-name">Create Customer</span>
+                                <span class="nav-main-link-name">Add Product</span>
                             </a>
                         </li>
                         </ul>
 
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                    <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('categoryproduct.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
                         <i class="nav-main-link-icon si si-energy"></i>
-                        <span class="nav-main-link-name">categoryproduct</span>
+                        <span class="nav-main-link-name">All Rlations</span>
                     </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" style="text-decoration:none" href="{{ route('categoryproduct.index') }}">
-                                <span class="nav-main-link-name">All categoryproduct</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" style="text-decoration:none" href="{{ route('categoryproduct.create') }}">
-                                <span class="nav-main-link-name">Create Service</span>
-                            </a>
-                        </li>
-                        </ul>
                 </li>
-
                 <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-badge"></i>
-                        <span class="nav-main-link-name">categories</span>
+                    <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('emails.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
+                        <i class="nav-main-link-icon si si-energy"></i>
+                        <span class="nav-main-link-name">Emails</span>
                     </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" style="text-decoration:none" href="{{ route('categories.index') }}">
-                                <span class="nav-main-link-name">All categories</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" style="text-decoration:none" href="{{ route('categories.create') }}">
-                                <span class="nav-main-link-name">Create Invoice</span>
-                            </a>
-                        </li>
-                        </ul>
-
                 </li>
+
                 {{-- <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                         <i class="nav-main-link-icon si si-badge"></i>

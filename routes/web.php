@@ -37,6 +37,8 @@ Route::group(['prefix'=>'admin/','middleware'=>['admin']],function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('categoryproduct', CategoryProductController::class);
+    Route::get('show-category/{category}', [CategoryController::class, 'show_category'])->name('categories.showcategory');
+    Route::get('show-product/{product}', [ProductController::class, 'show_product'])->name('products.showproduct');
     Route::resource('team', TeamController::class);
     Route::resource('emails', EmailsController::class);
     Route::get('admin-view', [HomeController::class, 'adminView'])->name('admin.view');

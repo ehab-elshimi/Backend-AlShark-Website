@@ -22,7 +22,7 @@
                         {{ $product->session }}
                     </td>
                     <td>
-                        <a href="{{ route('products.show',$product->id)}}">{{ $product->name }}</a>
+                        <a href="{{ route('products.showproduct',$product->id)}}">{{ $product->name }}</a>
                     </td>
                     <td>
                         {{ $product->desc }}
