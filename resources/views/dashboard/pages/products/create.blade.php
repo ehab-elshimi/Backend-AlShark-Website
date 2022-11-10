@@ -17,8 +17,8 @@
                     </div>
                     <div class="">
                         <select class="form-control bg-success text-light" id="example-select" name="session" required="required">
-                            <option value="0" >Please Select Plaint Session</option>
-                            <option value="1" selected>Winter Session</option>
+                            <option value="0" selected>Please Select Plaint Session</option>
+                            <option value="1">Winter Session</option>
                             <option value="2">Summar Session</option>
                             <option value="3">On Demand</option>
                         </select>
@@ -29,7 +29,7 @@
                         <label for="example-text-input" class="">Name</label>
                     </div>
                     <div class="">
-                        <input type="text" class="form-control" id="example-text-input" name="name" placeholder="product name" required value="sadsadsadasd">
+                        <input type="text" class="form-control" id="example-text-input" name="name" placeholder="product name" required>
                     </div>
                 </div>
                 <div class="row py-1">
@@ -50,7 +50,7 @@
                         </td>
                         <td>
                             <div class="col-lg-11 col-xl-11">
-                                <textarea class="form-control form-control-alt" style="width: 100%; height: 100%; border: none" id="example-textarea-input-alt" name="desc" rows="4" placeholder="" required>dcdasdasdasdsad</textarea>
+                                <textarea class="form-control form-control-alt" style="width: 100%; height: 100%; border: none" id="example-textarea-input-alt" name="desc" rows="4" placeholder="" required></textarea>
                             </div>
                         </td>
                         <td>
@@ -60,7 +60,7 @@
                         </td>
                         <td>
                             <div class="col-lg-11 col-xl-11">
-                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="application" rows="4" placeholder="" required>sdfdfsdfdsf</textarea>
+                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="application" rows="4" placeholder="" required></textarea>
                             </div>
                         </td>
                     </tr>
@@ -72,7 +72,7 @@
                         </td>
                         <td>
                             <div class="col-lg-11 col-xl-11">
-                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="components" rows="4" placeholder="" required>fsdfdsfsdf</textarea>
+                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="components" rows="4" placeholder="" required></textarea>
                             </div>
                         </td>
                         <td>
@@ -82,7 +82,7 @@
                         </td>
                         <td>
                             <div class="col-lg-11 col-xl-11">
-                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="blends_with" rows="4" placeholder="" required>dfssdfdsfdsf</textarea>
+                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="blends_with" rows="4" placeholder="" required></textarea>
                             </div>
                         </td>
                     </tr>
@@ -94,7 +94,7 @@
                         </td>
                         <td>
                             <div class="col-lg-11 col-xl-11">
-                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="cautions" rows="4" placeholder="" required>sdffsdfdfsf</textarea>
+                                <textarea class="form-control form-control-alt" id="example-textarea-input-alt" name="cautions" rows="4" placeholder="" required></textarea>
                             </div>
                         </td>
                     </tr>
@@ -107,7 +107,7 @@
                 <tr>
                     <td class="h6 align-middle">MSDS</td>
                     <td>
-                        <input type="text" class="form-control" id="example-text-input" name="msds" placeholder="MSDS Value" required value="sadsadsadasd">
+                        <input type="file" class="form-control" id="example-text-input" name="msds" required >
                     </td>
                     <td class="h6 align-middle">SPECS</td>
                     <td>

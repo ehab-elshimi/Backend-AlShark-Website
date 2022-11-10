@@ -56,4 +56,5 @@ Route::group(['prefix'=>'','middleware'=>['auth']],function(){
     Route::get('/gallery', [WebsiteController::class, 'gallery'])->name('website.gallery');
     Route::get('/news', [WebsiteController::class, 'news'])->name('website.news');
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
+    Route::post('/send-email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('email.send');
 });

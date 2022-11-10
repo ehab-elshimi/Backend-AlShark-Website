@@ -62,12 +62,13 @@
                 <div class="offset-md-2 col-md-4 position-relative ">
                     <h4 class="mt-5"> get in touch </h4>
 
-                    <form class=" p-3">
+                    <form action="{{ route('email.send') }}" method="post"class=" p-3">
+                        @csrf
                         <div class="form-group">
                             <label>Name <span>*</span></label>
                             <div class="d-flex mt-2">
-                                <input class="form-control ">
-                                <input class="form-control  mx-3">
+                                <input type="text" class="form-control "name="firstname">
+                                <input type="text" class="form-control  mx-3" name="lastname">
                             </div>
                             <div class="hent">
                                 <label class="w-50">Frist</label>
@@ -77,25 +78,25 @@
 
                         <div class="form-group my-3">
                             <label class="my-2">Company Name <span>*</span></label>
-                            <input class="form-control w-100">
+                            <input type="text" class="form-control w-100" name="companyname">
                         </div>
 
                         <div class="form-group my-3">
                             <label>Phone Number <span>*</span></label>
-                            <input class="form-control w-100">
+                            <input type="text" class="form-control w-100" name="phonenumber">
                         </div>
 
                         <div class="form-group my-3">
                             <label>Email <span>*</span></label>
-                            <input class="form-control w-100">
+                            <input type="email" class="form-control w-100" name="email">
                         </div>
 
                         <div class="form-group my-3">
                             <label>Comment or Message <span>*</span></label>
-                            <textarea class="form-control w-100 "></textarea>
+                            <textarea class="form-control w-100 " name="message"></textarea>
                         </div>
 
-                        <button class="sub">SUBMIT</button>
+                        <button class="sub" type="submit">Send</button>
                     </form>
                 </div>
             </div>

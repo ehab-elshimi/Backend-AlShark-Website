@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Emails;
 use Illuminate\Http\Request;
-
 class EmailsController extends Controller
 {
     /**
@@ -14,7 +14,11 @@ class EmailsController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pages.emails.index');
+        $emails = Emails::select('*')->orderByDesc('created_at')->get();
+
+        // dd($emails);
+        // $emails->orderByDesc('created_at')->get();
+        return view('dashboard.pages.emails.index',compact('emails'));
     }
 
     /**
@@ -46,7 +50,9 @@ class EmailsController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.pages.emails.show');
+        $email = Emails::where('id',$id)->first();
+
+        return view('dashboard.pages.emails.show',compact('email'));
     }
 
     /**

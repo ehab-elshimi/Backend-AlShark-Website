@@ -67,11 +67,11 @@
                                               <td class="text-center">
                                                 <div class="btn-group">
                                                       <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-info btn-icon"><i class="fa fa-fw fa-edit"></i></a>
-                                                    <form method="POST" action="{{ route('categories.destroy',$category->id) }}">
+                                                    <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-danger btn-icon ml-2">
-                                                            <i class="fa fa-fw fa-times"></i>
+                                                            <i class="fa fa-fw fa-trash"></i>
                                                         </button>
                                                       </form>
                                                 </div>
