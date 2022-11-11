@@ -24,4 +24,3 @@
     <link rel="shortcut icon" href="{{ asset('website/images/logo/Favicon.png') }}">
 </head>
 <body>
-    

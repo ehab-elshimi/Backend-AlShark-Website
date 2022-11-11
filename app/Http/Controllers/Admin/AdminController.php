@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Emails;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,7 +17,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $count_categories = count(Category::all());
+        $count_products = count(Product::all());
+        $count_emails = count(Emails::all());
+        return view('dashboard.pages.dashboard', compact('count_categories','count_products','count_emails'));
     }
 
     /**

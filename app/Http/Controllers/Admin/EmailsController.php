@@ -15,10 +15,10 @@ class EmailsController extends Controller
     public function index()
     {
         $emails = Emails::select('*')->orderByDesc('created_at')->get();
-
+        $count_emails = count(Emails::all());
         // dd($emails);
         // $emails->orderByDesc('created_at')->get();
-        return view('dashboard.pages.emails.index',compact('emails'));
+        return view('dashboard.pages.emails.index',compact('emails','count_emails'));
     }
 
     /**

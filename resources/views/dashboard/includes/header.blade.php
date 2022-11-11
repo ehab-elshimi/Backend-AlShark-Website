@@ -104,7 +104,11 @@
     <!-- Hero -->
     <div class="bg-body-light">
         <div class="content content-full">
+            @if(request()->routeIs('team.*'))
+            <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center ml-n8 py-2 text-center text-sm-left">
+            @else
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2 text-center text-sm-left">
+             @endif
                 <div class="flex-sm-fill">
 
                     <h1 class="h3 font-w700 mb-2">

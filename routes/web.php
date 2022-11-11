@@ -1,16 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\EmailsController;
 use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\Auth\LoginController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,16 +21,12 @@ use App\Http\Controllers\Auth\LoginController;
 
 
 
-
-// Auth::routes();
-Route::group(['prefix'=>'admin/'],function () {
-    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [LoginController::class, 'login'])->name('login');
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
-});
-Route::group(['prefix'=>'admin/','middleware'=>['admin']],function () {
-    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard.home');
+require __DIR__.'/auth.php';
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+Route::group(['prefix'=>'admin/','middleware'=>['auth', 'verified']],function () {
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard.home');
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('categoryproduct', CategoryProductController::class);
@@ -41,11 +34,9 @@ Route::group(['prefix'=>'admin/','middleware'=>['admin']],function () {
     Route::get('show-product/{product}', [ProductController::class, 'show_product'])->name('products.showproduct');
     Route::resource('team', TeamController::class);
     Route::resource('emails', EmailsController::class);
-    Route::get('admin-view', [HomeController::class, 'adminView'])->name('admin.view');
-
 });
 
-Route::group(['prefix'=>'','middleware'=>['auth']],function(){
+Route::group(['prefix'=>''],function(){
     Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
     Route::get('/history', [WebsiteController::class, 'history'])->name('website.history');
     Route::get('/products', [WebsiteController::class, 'products'])->name('website.products');
@@ -56,5 +47,5 @@ Route::group(['prefix'=>'','middleware'=>['auth']],function(){
     Route::get('/gallery', [WebsiteController::class, 'gallery'])->name('website.gallery');
     Route::get('/news', [WebsiteController::class, 'news'])->name('website.news');
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
-    Route::post('/send-email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('email.send');
+    Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('email.send');
 });
