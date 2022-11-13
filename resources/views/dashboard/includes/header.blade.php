@@ -49,7 +49,10 @@
                     <div class="p-2">
                         <a class="dropdown-item d-flex align-items-center justify-content-between" href="{{ route('emails.index') }}">
                             <span class="font-size-sm font-w500">Inbox</span>
-                            <span class="badge badge-pill badge-primary ml-2">3</span>
+                            @php
+                            $emails_number = count(App\Models\Emails::all());
+                            echo '<span class="badge badge-pill badge-primary ml-2">'.$emails_number.'</span>';
+                            @endphp
                         </a>
 
                         <form action="{{ route('logout') }}" method="POST">

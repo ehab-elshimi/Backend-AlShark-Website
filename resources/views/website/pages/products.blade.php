@@ -7,92 +7,17 @@
                 <div class="container">
                     <h3 class="orange fs-1 my-5">Categories</h3>
                     <div class="row">
+                        @foreach ($categories as $category)
                         <div class="col-md-6 mb-2">
-                            <a href="{{ route('website.steam_distillation') }}" class="text-decoration-none">
+                            <a href="{{ route('website.steam_distillation',$category->id) }}" class="text-decoration-none">
                                 <div class="prod bg-white">
                                     <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
+                                    {{ $category->name }}
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <a href="#" class="text-decoration-none">
-                                <div class="prod bg-white">
-                                    <i class="fa-solid fa-file me-4"></i>
-                                    steam distillation
-                                </div>
-                            </a>
-                        </div>
-
-
-
-
+                        @endforeach
                     </div>
-
                 </div>
 
             </div>

@@ -3,86 +3,55 @@
 <!-- start products -->
 <div class="products-all">
     <div class="text-center">
-        <div class="container">
+        <div class="container mb-8 bg-light">
+            <h4>Winter Products</h4>
             <div class="row">
+                @foreach ($winter as $product)
                 <div class="col-md-6 mb-2">
-                    <a href="{{ route('website.product_details') }}" class="text-decoration-none">
+                    <a href="{{ route('website.product_details',$product->id) }}" class="text-decoration-none">
                         <div class="prod bg-white">
                             <i class="fa-solid fa-file me-4"></i>
-                            ANISE OIL
+                            {{ $product->name }}
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Basil linalool oil
-
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Chamomile Blue oil
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Geranium oil
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Marjoram oil
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Tajete oil
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Coriander oil
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Parsley oil
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <a href="#" class="text-decoration-none">
-                        <div class="prod bg-white">
-                            <i class="fa-solid fa-file me-4"></i>
-                            Yasmin Absolutes
-                        </div>
-                    </a>
-                </div>
-
-
+                @endforeach
             </div>
 
         </div>
+        <div class="container mb-8 bg-info">
+            <h4>Summar Products</h4>
+            <div class="row">
+                @foreach ($summar as $product)
+                <div class="col-md-6 mb-2">
+                    <a href="{{ route('website.product_details',$product->id) }}" class="text-decoration-none">
+                        <div class="prod bg-white">
+                            <i class="fa-solid fa-file me-4"></i>
+                            {{ $product->name }}
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+        <div class="container mt-4 bg-primary">
+            <h4>Ondemand Products</h4>
+            <div class="row">
+                @foreach ($ondemand as $product)
+                <div class="col-md-6 mb-2">
+                    <a href="{{ route('website.product_details',$product->id) }}" class="text-decoration-none">
+                        <div class="prod bg-white">
+                            <i class="fa-solid fa-file me-4"></i>
+                            {{ $product->name }}
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+
 
     </div>
 

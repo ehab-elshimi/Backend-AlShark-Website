@@ -40,8 +40,8 @@ Route::group(['prefix'=>''],function(){
     Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
     Route::get('/history', [WebsiteController::class, 'history'])->name('website.history');
     Route::get('/products', [WebsiteController::class, 'products'])->name('website.products');
-    Route::get('/product-details', [WebsiteController::class, 'product_details'])->name('website.product_details');
-    Route::get('/steam-distillation', [WebsiteController::class, 'steam_distillation'])->name('website.steam_distillation');
+    Route::get('/steam-distillation/{category}', [WebsiteController::class, 'steam_distillation'])->name('website.steam_distillation');
+    Route::get('/product-details/{id?}', [WebsiteController::class, 'product_details'])->name('website.product_details');
     Route::get('/partners', [WebsiteController::class, 'partners'])->name('website.partners');
     Route::get('/certificates', [WebsiteController::class, 'certificates'])->name('website.certificates');
     Route::get('/gallery', [WebsiteController::class, 'gallery'])->name('website.gallery');

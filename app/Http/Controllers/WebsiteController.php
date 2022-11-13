@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\CategoryProduct;
+use App\Models\Product;
+use Illuminate\Support\Arr;
 
 class WebsiteController extends Controller
 {
@@ -88,13 +92,71 @@ class WebsiteController extends Controller
         return view('website.pages.history');
     }
     public function products(){
-        return view('website.pages.products');
+        $categories = Category::all();
+        return view('website.pages.products',compact('categories'));
     }
-    public function product_details(){
-        return view('website.pages.product_details');
+    public function product($category){
+        // $rows =CategoryProduct::all()->orderBy('category_name');
+        // $products = CategoryProduct::where('category_id',$category)->get();
+        $products = CategoryProduct::where('category_id',$category)->get();
+        $products_ids = $products->pluck('product_id');
+
+        $information=array();
+        foreach($products_ids as $id){
+            $product=Product::where('id',$id)->orderBy('session')->first();
+            array_push($information,$product);
+        }
+        return $information;
     }
-    public function steam_distillation(){
-        return view('website.pages.steam_distillation');
+    public function steam_distillation($category){
+        $products = $this->product($category);
+
+        // $sesion_name=Arr::pluck($products, 'session');
+        // dd($sesion_name);
+
+        $sortbysession = collect($products)->sortBy('session')->toArray();
+        // $sort=Arr::select($sortbysession,'id','session');
+        $winter = array();
+        $summar = array();
+        $ondemand = array();
+
+        foreach($sortbysession as $key){
+            if($key['session']=='winter'){
+                $product=Product::where('id',$key['id'])->first();
+                array_push($winter,$product);
+            }
+        }
+        foreach($sortbysession as $key){
+            if($key['session']=='summar'){
+                $product=Product::where('id',$key['id'])->first();
+                array_push($summar,$product);
+            }
+        }
+        foreach($sortbysession as $key){
+            if($key['session']=='ondemand'){
+                $product=Product::where('id',$key['id'])->first();
+                array_push($ondemand,$product);
+            }
+        }
+        // // foreach($sort as $value){
+        // //     if($value=='winter'){
+        // //         $product=Product::where('id',4)->first();
+        // //         array_push($winter,$product);
+        // //     }
+        // // }
+        // // foreach($sort as $value){
+        // //     if($value=='summar'){
+        // //         $product=Product::where('id',4)->first();
+        // //         array_push($summar,$product);
+        // //     }
+
+        // // }
+
+        return view('website.pages.steam_distillation',compact('winter','summar','ondemand'));
+    }
+    public function product_details($id){
+        $product = Product::where('id',$id)->first();
+        return view('website.pages.product_details',compact('product'));
     }
     public function partners(){
     return view('website.pages.partners');

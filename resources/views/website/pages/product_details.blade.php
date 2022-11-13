@@ -6,7 +6,7 @@
     <div class="content-prod-details">
         <p>PIMPINELLA ANISIUM
         </p>
-        <h4>Anise Oil
+        <h4>{{ $product->name }}
         </h4>
     </div>
 </div>
