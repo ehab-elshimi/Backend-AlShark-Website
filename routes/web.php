@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\EmailsController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\MailController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,5 +49,8 @@ Route::group(['prefix'=>''],function(){
     Route::get('/gallery', [WebsiteController::class, 'gallery'])->name('website.gallery');
     Route::get('/news', [WebsiteController::class, 'news'])->name('website.news');
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
-    Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('email.send');
+    Route::get('/send-email', [EmailsController::class, 'index'])->name('email.send');
+    Route::get('send-mail', [MailController::class, 'index']);
+
 });
+

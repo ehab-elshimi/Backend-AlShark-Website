@@ -32,9 +32,11 @@
         </div>
     </form>
 </div>
-@if (session('status'))
-<div class="alert alert-success alert-dismissible fade show js-alert text-center mt-4 mb-n3" role="alert">
-    {{ session('status') }}
+@if (\Session::has('error'))
+<div class="alert alert-danger">
+    <ul>
+        <li>{!! \Session::get('error') !!}</li>
+    </ul>
 </div>
 @endif
     <!-- Page Content -->
@@ -45,7 +47,6 @@
                 <h4 class="">Categoires</h4>
             </div>
             <div class="block-content block-content-full">
-                <form action="be_forms_elements.html" method="POST" enctype="multipart/form-data">
                     <div class="row push">
                         <div class="col-lg-12 col-xl-12">
                             <!-- Default Table -->
@@ -66,7 +67,8 @@
                                               <td class="font-weight-bold">{{ $category->desc }}</td>
                                               <td class="text-center">
                                                 <div class="btn-group">
-                                                      <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-info btn-icon"><i class="fa fa-fw fa-edit"></i></a>
+                                                    <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-info btn-icon">
+                                                    <i class="fa fa-fw fa-edit"></i></a>
                                                     <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
@@ -85,17 +87,15 @@
                             <!-- END Default Table -->
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </div>
     <script>
-          if (document.querySelector('.js-alert')) {
-                document.querySelectorAll('.js-alert').forEach(function($el) {
-                setTimeout(() => {
-                    $el.classList.remove('show');
-                }, 7000);
-                });
-            }
-    </script>
+        $("document").ready(function(){
+            setTimeout(function(){
+               $("div.alert").remove();
+            }, 5000 ); // 5 secs
+
+        });
+        </script>
 @endsection

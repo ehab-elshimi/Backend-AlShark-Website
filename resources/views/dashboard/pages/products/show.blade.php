@@ -96,11 +96,13 @@
                 <tr>
                     <td class="h6 align-middle">MSDS</td>
                     <td class="text-center align-middle">
-                        <a href="{{ asset('dashboard/uploads/files/1667795472.pdf') }}" target="_blank" style="text-decoration:none"><i class="fa fa-file-pdf-o text-danger" style="font-size:24px;"></i><span class="ml-3">Download MSDS .pdf</span></a>
+                        <?php $link_file1 =  "dashboard/uploads/files/".$product['msds']  ?>
+                        <a href="{{ asset($link_file1) }}" target="_blank" style="text-decoration:none"><i class="fa fa-file-pdf-o text-danger" style="font-size:24px;"></i><span class="ml-3">Download MSDS .pdf</span></a>
                     </td>
                     <td class="h6 align-middle">SPECS</td>
                     <td class="text-center align-middle">
-                        <a href="{{ asset('dashboard/uploads/files/1667795472.pdf') }}" target="_blank" style="text-decoration:none"><i class="fa fa-file-pdf-o text-danger" style="font-size:24px;"></i><span class="ml-3">Download SPECS .pdf</span></a>
+                        <?php $link_file2 =  "dashboard/uploads/files/".$product['specs']  ?>
+                        <a href="{{ asset($link_file2) }}" target="_blank" style="text-decoration:none"><i class="fa fa-file-pdf-o text-danger" style="font-size:24px;"></i><span class="ml-3">Download SPECS .pdf</span></a>
                     </td>
                 </tr>
             </table>
@@ -109,9 +111,10 @@
                     <label for="example-text-input" class="">Image</label>
                 </div>
                 <div class="d-flex">
-                    <a href="{{ asset('dashboard/uploads/images/1667795339.jpg') }}" class="" download>Download Product Image</a>
+                    <?php $link =  "dashboard/uploads/images/".$product['image']  ?>
+                    <a href="{{ asset($link) }}" class="" download>Download Product Image</a>
                     <div class="image w-25 h-25" style="margin-left:20%">
-                        <img src="{{ asset('dashboard/uploads/images/1667795339.jpg') }}" style="width:150px;height:150px" alt="product image">
+                        <img src="{{ asset($link) }}" style="width:150px;height:150px" alt="product image">
                     </div>
                 </div>
             </div>

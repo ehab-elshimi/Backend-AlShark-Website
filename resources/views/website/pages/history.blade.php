@@ -62,7 +62,7 @@
     </div>
     <!-- ====================End history ============================ -->
     <!-- ====================Start team ============================ -->
-    <section class="team">
+    {{-- <section class="team">
         <h2 class="text-center">Meet our team</h2>
 
         <div class="container">
@@ -128,7 +128,7 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ====================End team ============================ -->
 
 

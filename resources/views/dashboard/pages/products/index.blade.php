@@ -1,6 +1,13 @@
 @extends('layouts.master')
 @section('content')
 <div class="block block-rounded">
+    @if (\Session::has('error'))
+    <div class="alert alert-danger">
+        <ul>
+            <li>{!! \Session::get('error') !!}</li>
+        </ul>
+    </div>
+    @endif
     <div class="block-header">
         <h3 class="block-title">Dynamic Table <small>Full {{ $count }}</small></h3>
     </div>
@@ -29,13 +36,15 @@
                     </td>
                     <td>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light js-tooltip-enabled px-2 border border-1" data-toggle="tooltip" title="" data-original-title="Edit Client">
-                                <i class="fa fa-fw fa-pencil-alt"></i>
-                            </button>
-                            <a href="{{ route('categories.destroy',$product->id) }}" class="btn btn-light text-danger js-tooltip-enabled px-2 border border-1 ml-2" data-toggle="tooltip" data-original-title="Remove Client">
-                                <i class="fa fa-fw fa-times"></i>
-                            </a>
-                        </div>
+                            <a href="{{ route('products.edit',$product->id) }}" class="btn btn-info btn-icon"><i class="fa fa-fw fa-edit"></i></a>
+                          <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                              @csrf
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="submit" class="btn btn-danger btn-icon ml-2">
+                                  <i class="fa fa-fw fa-trash"></i>
+                              </button>
+                            </form>
+                      </div>
                     </td>
                 </tr>
                 @endforeach
@@ -43,4 +52,12 @@
         </table>
     </div>
 </div>
+<script>
+$("document").ready(function(){
+    setTimeout(function(){
+       $("div.alert").remove();
+    }, 5000 ); // 5 secs
+
+});
+</script>
 @endsection

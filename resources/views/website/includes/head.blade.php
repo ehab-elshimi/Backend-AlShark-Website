@@ -22,5 +22,6 @@
     <link rel="stylesheet" href="{{ asset('website/css/style.css') }}">
     <!-- css -->
     <link rel="shortcut icon" href="{{ asset('website/images/logo/Favicon.png') }}">
+    
 </head>
 <body>

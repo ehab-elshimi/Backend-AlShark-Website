@@ -1,6 +1,11 @@
 <!-- ====================Start footer ============================ -->
 <section class="section-seperator mt-5 position-relative">
-    <div class="seaparator-line"></div>
+    @if(Route::is('website.products') )
+        <div class="seaparator-line" style="margin-top: 0px;"></div>
+    @else
+        <div class="seaparator-line" style="margin-top: 0px;"></div>
+    @endif
+    <div class="seaparator-line" style="margin-top: 0px;"></div>
     <!-- Footer -->
     <footer class="text-center pt-1 text-lg-start bg-white text-muted mt-5">
         <!-- Section: Links  -->

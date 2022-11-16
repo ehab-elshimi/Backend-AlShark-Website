@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -100,16 +101,18 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($category)
+    public function destroy(Category $category)
     {
-        $categories = Category::all();
-        $count = count($categories);
-        if($count>1){
-            $category=Category::where('id',$category)->delete();
 
-            return redirect()->back();
+        $result = CategoryProduct::where('category_id',$category->id)->get();
+        $count = count($result);
+        if($count>0){
+            //Can not delete have relations
+            return redirect()->route('categories.index')->with('error','Can not delete have relations');
         }else{
-            return redirect()->back()->with('status','can\'t delete all categories, please add "+New Category" to be able to delete this, thanks');
+            $category->delete();
+            return redirect()->back();
+
         }
 
     }

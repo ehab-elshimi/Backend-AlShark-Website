@@ -62,13 +62,13 @@
                 <div class="offset-md-2 col-md-4 position-relative ">
                     <h4 class="mt-5"> get in touch </h4>
 
-                    <form action="{{ route('email.send') }}" method="post"class=" p-3">
+                    <form action="{{ route('email.send') }}" method="post" class="p-3">
                         @csrf
                         <div class="form-group">
                             <label>Name <span>*</span></label>
                             <div class="d-flex mt-2">
-                                <input type="text" class="form-control "name="firstname">
-                                <input type="text" class="form-control  mx-3" name="lastname">
+                                <input type="text" class="form-control " name="first_name" value="first Name">
+                                <input type="text" class="form-control  mx-3" name="last_name" value="last Name">
                             </div>
                             <div class="hent">
                                 <label class="w-50">Frist</label>
@@ -78,22 +78,22 @@
 
                         <div class="form-group my-3">
                             <label class="my-2">Company Name <span>*</span></label>
-                            <input type="text" class="form-control w-100" name="companyname">
+                            <input type="text" class="form-control w-100" name="company_name" value="last Name">
                         </div>
 
                         <div class="form-group my-3">
                             <label>Phone Number <span>*</span></label>
-                            <input type="text" class="form-control w-100" name="phonenumber">
+                            <input type="text" class="form-control w-100" name="phone_number" value="01099644971">
                         </div>
 
                         <div class="form-group my-3">
                             <label>Email <span>*</span></label>
-                            <input type="email" class="form-control w-100" name="email">
+                            <input type="email" class="form-control w-100" name="email" value="ehab.developer.email@gmail.com">
                         </div>
 
                         <div class="form-group my-3">
                             <label>Comment or Message <span>*</span></label>
-                            <textarea class="form-control w-100 " name="message"></textarea>
+                            <textarea class="form-control w-100 " name="message">text of message description</textarea>
                         </div>
 
                         <button class="sub" type="submit">Send</button>

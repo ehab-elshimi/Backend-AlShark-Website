@@ -110,12 +110,12 @@ class WebsiteController extends Controller
     }
     public function steam_distillation($category){
         $products = $this->product($category);
+        $sesion_name=Arr::pluck($products, 'session');
 
-        // $sesion_name=Arr::pluck($products, 'session');
-        // dd($sesion_name);
 
         $sortbysession = collect($products)->sortBy('session')->toArray();
-        // $sort=Arr::select($sortbysession,'id','session');
+
+        // // $sort=Arr::select($sortbysession,'id','session');
         $winter = array();
         $summar = array();
         $ondemand = array();
@@ -133,24 +133,25 @@ class WebsiteController extends Controller
             }
         }
         foreach($sortbysession as $key){
-            if($key['session']=='ondemand'){
+            if($key['session']=='on demand'){
                 $product=Product::where('id',$key['id'])->first();
                 array_push($ondemand,$product);
             }
         }
-        // // foreach($sort as $value){
-        // //     if($value=='winter'){
-        // //         $product=Product::where('id',4)->first();
-        // //         array_push($winter,$product);
-        // //     }
-        // // }
-        // // foreach($sort as $value){
-        // //     if($value=='summar'){
-        // //         $product=Product::where('id',4)->first();
-        // //         array_push($summar,$product);
-        // //     }
+        // dd($ondemand);
+        // foreach($sort as $value){
+        //     if($value=='winter'){
+        //         $product=Product::where('id',4)->first();
+        //         array_push($winter,$product);
+        //     }
+        // }
+        // foreach($sort as $value){
+        //     if($value=='summar'){
+        //         $product=Product::where('id',4)->first();
+        //         array_push($summar,$product);
+        //     }
 
-        // // }
+        // }
 
         return view('website.pages.steam_distillation',compact('winter','summar','ondemand'));
     }
