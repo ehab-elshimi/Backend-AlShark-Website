@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\EmailsController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\MailController;
 
@@ -35,6 +36,7 @@ Route::group(['prefix'=>'admin/','middleware'=>['auth', 'verified']],function ()
     Route::get('show-category/{category}', [CategoryController::class, 'show_category'])->name('categories.showcategory');
     Route::get('show-product/{product}', [ProductController::class, 'show_product'])->name('products.showproduct');
     Route::resource('team', TeamController::class);
+    Route::resource('news', NewsController::class);
     Route::resource('emails', EmailsController::class);
 });
 

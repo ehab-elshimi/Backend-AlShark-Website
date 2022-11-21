@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\CategoryProduct;
+use App\Models\News;
 use App\Models\Product;
 use Illuminate\Support\Arr;
 
@@ -170,7 +171,8 @@ class WebsiteController extends Controller
         return view('website.pages.gallery');
     }
     public function news(){
-        return view('website.pages.news');
+        $news_all = News::all();
+        return view('website.pages.news',compact('news_all'));
     }
     public function contact(){
         return view('website.pages.contact');

@@ -7,41 +7,27 @@
             <h2 class="display-20 display-md-18 display-lg-16">Most recent our blog</h2>
         </div>
         <div class="row">
+            @foreach ($news_all as $news)
             <div class="col-lg-6 col-md-12 mb-2">
                 <article class="card card-style2 mt-2">
                     <div class="card-img">
-                        <img class="rounded-top w-100 img-fluid" src="{{ asset('website/images/news/1.jpg') }}" alt="...">
-                        <div class="date"><span>27</span>October</div>
+                        <img class="rounded-top img-fluid mx-auto d-block" src='{{ asset("dashboard/uploads/images/$news->image") }}' alt="news image">
+                        <?php
+                        $string = "$news->date";
+                        $date = DateTime::createFromFormat("Y-m-d", $string);
+                        ?>
+                        <div class="date"><span><?php echo $date->format("d");?></span><?php echo $date->format("m");?></div>
                     </div>
                     <div class="card-body">
-                        <p class="fs-5">Director of Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ),
-                            Governor of Beni Suef and Governor of Al-Fayoum honored ALSHARK Farm with the award of
-                            Best Farm in the First festival of medicinal and fragrant plants held at the Helnan
-                            Auberge, Fayoum city.</p>
+                        <h3 class="text-center font-bold">{{ $news->headline }}</h3>
+                        <p class="fs-5">{{ $news->desc }}</p>
                     </div>
-                    <div class="card-footer pt-3">
-                        <p class="text-center text-muted">27/10/2022</p>
+                    <div class="card-footer pt-3 bg-primary">
+                        <p class="text-center text-light mt-1" style="font-size: 1.8em;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">{{ $news->date }}</p>
                     </div>
                 </article>
             </div>
-            <div class="col-lg-6 col-md-12 mb-2">
-                <article class="card card-style2 mt-2">
-                    <div class="card-img">
-                        <img class="rounded-top w-100 img-fluid" src="{{ asset('website/images/news/2.jpg') }}" alt="...">
-                        <div class="date"><span>27</span>October</div>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5">Dr Abdelrahman and Professor Haytham have attended IFEAT Vancouver 2022 as
-                            delegates of ALSHARK Farm and got the opportunity to connect with stakeholders of the
-                            F&F industry.</p>
-                    </div>
-                    <div class="card-footer pt-3">
-                        <p class="text-center text-muted">9/10/2022</p>
-                    </div>
-                </article>
-            </div>
-
-
+            @endforeach
         </div>
     </div>
 </section>
