@@ -67,33 +67,42 @@
                                             </tr>
                                           </thead>
                                           <tbody class="text-center">
-                                            @foreach ($rows as $row)
+                                            @php
+                                            $isEmpty = count($rows);
+                                            @endphp
+                                            @if($isEmpty>0)
+                                                @foreach ($rows as $row)
+                                                <tr>
+                                                <td class="align-middle"><a href="{{ route('categories.showcategory',$row[0])}}" style="text-decoration:none;color:#000;font-weight:bolder;">{{ $row[1] }}</a></td>
+                                                <td class="align-middle"><a href="{{ route('products.showproduct',$row[2])}}" style="text-decoration:none;color:#000;font-weight:bolder;">{{ $row[3] }}</a></td>
+                                                <td class="text-center">
+                                                    <div class="btn-group">
+                                                        <form method="POST" action="{{ route('categoryproduct.edit',$row[4]) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="GET">
+                                                            <button type="submit" class="btn btn-primary btn-icon ml-2">
+                                                                <i class="fa fa-fw fa-edit"></i>
+                                                            </button>
+
+                                                        </form>
+                                                        <form method="POST" action="{{ route('categoryproduct.destroy',$row[4]) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="submit" class="btn btn-danger btn-icon ml-2">
+                                                                <i class="fa fa-fw fa-times"></i>
+                                                            </button>
+
+                                                        </form>
+
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                @endforeach
+                                            @else
                                             <tr>
-                                              <td class="align-middle"><a href="{{ route('categories.showcategory',$row[0])}}" style="text-decoration:none;color:#000;font-weight:bolder;">{{ $row[1] }}</a></td>
-                                              <td class="align-middle"><a href="{{ route('products.showproduct',$row[2])}}" style="text-decoration:none;color:#000;font-weight:bolder;">{{ $row[3] }}</a></td>
-                                              <td class="text-center">
-                                                <div class="btn-group">
-                                                    <form method="POST" action="{{ route('categoryproduct.edit',$row[4]) }}">
-                                                        @csrf
-                                                        <input type="hidden" name="_method" value="GET">
-                                                        <button type="submit" class="btn btn-primary btn-icon ml-2">
-                                                            <i class="fa fa-fw fa-edit"></i>
-                                                        </button>
-
-                                                      </form>
-                                                    <form method="POST" action="{{ route('categoryproduct.destroy',$row[4]) }}">
-                                                        @csrf
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger btn-icon ml-2">
-                                                            <i class="fa fa-fw fa-times"></i>
-                                                        </button>
-
-                                                      </form>
-
-                                                </div>
-                                            </td>
+                                                <td colspan="3" class="font-weight-bold">There is no Relations</td>
                                             </tr>
-                                            @endforeach
+                                            @endif
                                           </tbody>
                                       </table>
                                 </div>

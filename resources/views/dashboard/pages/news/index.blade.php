@@ -64,28 +64,37 @@
                                             </tr>
                                           </thead>
                                           <tbody class="text-center">
-                                            @foreach ($all_news as $news)
-                                            <tr>
-                                              <td class="font-weight-bold" style="width:40%">{{ $news->headline }}</td>
-                                              <td class="font-weight-bold" style="width:15%;overflow: hiddden;">{{ $news->desc }}</td>
-                                              <?php $link =  "dashboard/uploads/images/".$news->image  ?>
-                                              <td class="font-weight-bold" style="width:15%"><a href="{{ asset($link) }}" class="" download><img src="{{ asset($link) }}" style="width:150px;height:150px" alt="product image"></td>
-                                              <td class="font-weight-bold" style="width:15%">{{ $news->date }}</td>
-                                              <td class="text-center" style="width:15%">
-                                                <div class="btn-group">
-                                                    <a href="{{ route('news.edit',$news->id) }}" class="btn btn-info btn-icon">
-                                                    <i class="fa fa-fw fa-edit"></i></a>
-                                                    <form action="{{ route('news.destroy',$news->id) }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger btn-icon ml-2">
-                                                            <i class="fa fa-fw fa-trash"></i>
-                                                        </button>
-                                                      </form>
-                                                </div>
-                                            </td>
-                                            </tr>
-                                            @endforeach
+                                            @php
+                                            $isEmpty = count($all_news);
+                                            @endphp
+                                            @if($isEmpty>0)
+                                                @foreach ($all_news as $news)
+                                                <tr>
+                                                <td class="font-weight-bold" style="width:40%">{{ $news->headline }}</td>
+                                                <td class="font-weight-bold" style="width:15%;overflow: hiddden;">{{ $news->desc }}</td>
+                                                <?php $link =  "dashboard/uploads/images/".$news->image  ?>
+                                                <td class="font-weight-bold" style="width:15%"><a href="{{ asset($link) }}" class="" download><img src="{{ asset($link) }}" style="width:150px;height:150px" alt="product image"></td>
+                                                <td class="font-weight-bold" style="width:15%">{{ $news->date }}</td>
+                                                <td class="text-center" style="width:15%">
+                                                    <div class="btn-group">
+                                                        <a href="{{ route('news.edit',$news->id) }}" class="btn btn-info btn-icon">
+                                                        <i class="fa fa-fw fa-edit"></i></a>
+                                                        <form action="{{ route('news.destroy',$news->id) }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="submit" class="btn btn-danger btn-icon ml-2">
+                                                                <i class="fa fa-fw fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td colspan="5" class="font-weight-bold">There is no news</td>
+                                                </tr>
+                                            @endif
                                           </tbody>
                                       </table>
                                 </div>

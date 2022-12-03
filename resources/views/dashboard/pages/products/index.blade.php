@@ -13,9 +13,9 @@
     </div>
     <div class="block-content block-content-full">
         <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
-        <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+        <table class="table table-striped table-vcenter js-dataTable-full">
             <thead>
-                <tr>
+                <tr class="bg-primary text-light text-center">
                     <th>Plaint Session</th>
                     <th>Product Name</th>
                     <th>Description</th>
@@ -23,31 +23,40 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
-                <tr>
-                    <td>
-                        {{ $product->session }}
-                    </td>
-                    <td>
-                        <a href="{{ route('products.showproduct',$product->id)}}">{{ $product->name }}</a>
-                    </td>
-                    <td>
-                        {{ $product->desc }}
-                    </td>
-                    <td>
-                        <div class="btn-group">
-                            <a href="{{ route('products.edit',$product->id) }}" class="btn btn-info btn-icon"><i class="fa fa-fw fa-edit"></i></a>
-                          <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                              @csrf
-                              <input type="hidden" name="_method" value="DELETE">
-                              <button type="submit" class="btn btn-danger btn-icon ml-2">
-                                  <i class="fa fa-fw fa-trash"></i>
-                              </button>
-                            </form>
-                      </div>
-                    </td>
-                </tr>
-                @endforeach
+                @php
+                $isEmpty = count($products);
+                @endphp
+                @if($isEmpty>0)
+                    @foreach ($products as $product)
+                    <tr>
+                        <td>
+                            {{ $product->session }}
+                        </td>
+                        <td>
+                            <a href="{{ route('products.showproduct',$product->id)}}">{{ $product->name }}</a>
+                        </td>
+                        <td>
+                            {{ $product->desc }}
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ route('products.edit',$product->id) }}" class="btn btn-info btn-icon"><i class="fa fa-fw fa-edit"></i></a>
+                            <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger btn-icon ml-2">
+                                    <i class="fa fa-fw fa-trash"></i>
+                                </button>
+                                </form>
+                        </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="4" class="font-weight-bold text-center" style="background: rgb(58, 58, 58);color:#fff;">There is no products</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
     </div>

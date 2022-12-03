@@ -10,8 +10,8 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                <div class="modal-header bg-success">
+                <h5 class="modal-title text-light" id="exampleModalLabel">Add Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-success text-light .addcategory">Save</button>
                 </div>
             </div>
             </div>
@@ -54,32 +54,41 @@
                                 <div class="block-content">
                                     <table class="table">
                                         <thead class="text-center">
-                                            <tr class="table bg-info text-light">
+                                            <tr class="table text-light" style="background: #FC0000">
                                               <th scope="col" style="width:35%">Category Name</th>
                                               <th scope="col" style="width:40%">Description</th>
                                               <th scope="col" style="width:20%" class="text-center">Actions</th>
                                             </tr>
                                           </thead>
                                           <tbody class="text-center">
-                                            @foreach ($categories as $category)
-                                            <tr>
-                                              <td class="font-weight-bold">{{ $category->name }}</td>
-                                              <td class="font-weight-bold">{{ $category->desc }}</td>
-                                              <td class="text-center">
-                                                <div class="btn-group">
-                                                    <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-info btn-icon">
-                                                    <i class="fa fa-fw fa-edit"></i></a>
-                                                    <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger btn-icon ml-2">
-                                                            <i class="fa fa-fw fa-trash"></i>
-                                                        </button>
-                                                      </form>
-                                                </div>
-                                            </td>
-                                            </tr>
-                                            @endforeach
+                                            @php
+                                            $isEmpty = count($categories);
+                                            @endphp
+                                            @if($isEmpty>0)
+                                                @foreach ($categories as $category)
+                                                <tr>
+                                                <td class="font-weight-bold">{{ $category->name }}</td>
+                                                <td class="font-weight-bold">{{ $category->desc }}</td>
+                                                <td class="text-center">
+                                                    <div class="btn-group">
+                                                        <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-success btn-icon">
+                                                        <i class="fa fa-fw fa-edit"></i></a>
+                                                        <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="submit" class="btn btn-danger btn-icon ml-2" style="background:rgb(181, 4, 4)">
+                                                                <i class="fa fa-fw fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td colspan="3" class="font-weight-bold">There is no categories</td>
+                                                </tr>
+                                            @endif
                                           </tbody>
                                       </table>
                                 </div>
@@ -97,5 +106,6 @@
             }, 5000 ); // 5 secs
 
         });
-        </script>
+    </script>
+
 @endsection

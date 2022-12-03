@@ -51,8 +51,8 @@ Route::group(['prefix'=>''],function(){
     Route::get('/gallery', [WebsiteController::class, 'gallery'])->name('website.gallery');
     Route::get('/news', [WebsiteController::class, 'news'])->name('website.news');
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
-    Route::get('/send-email', [EmailsController::class, 'index'])->name('email.send');
-    Route::get('send-mail', [MailController::class, 'index']);
+    Route::get('/send-email', [EmailsController::class, 'index']);
+    Route::post('send-mail', [MailController::class, 'sendemail'])->name('email.send');
 
 });
 

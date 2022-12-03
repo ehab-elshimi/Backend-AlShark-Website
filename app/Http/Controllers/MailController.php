@@ -1,12 +1,13 @@
-<!-- <?php
+<?php
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Emails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\TestEmail;
+use App\Mail\BestMail;
 
-class EmailController extends Controller
+class MailController extends Controller
 {
     public $email;
     public function sendemail(Request $request)
@@ -33,7 +34,7 @@ class EmailController extends Controller
           ]);
           $this->email = $request->all();
           $reveiverEmailAddress = "ehab.kamalshimi90@gmail.com";
-        Mail::to($reveiverEmailAddress)->send(new TestEmail($this->email));
+        Mail::to($reveiverEmailAddress)->send(new BestMail($this->email));
 
 
 
@@ -43,4 +44,4 @@ class EmailController extends Controller
         return "Oops! There was some error sending the email.";
     }
 
-} -->
+}

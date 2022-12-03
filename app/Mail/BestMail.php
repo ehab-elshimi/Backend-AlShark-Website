@@ -3,16 +3,14 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+
 use Illuminate\Queue\SerializesModels;
 
-class EmailMail extends Mailable
+class BestMail extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $mailData;
-
     /**
      * Create a new message instance.
      *
@@ -22,15 +20,10 @@ class EmailMail extends Mailable
     {
         $this->mailData = $mailData;
     }
-
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->subject('Mail from laravelia.com')
-                    ->view('emails.emailmail');
+                    ->view('emails.emailmail',['mailData'=>$this->mailData]);
     }
+
 }

@@ -442,13 +442,13 @@
     Adding 'smini-visible' to an element will show it (display: inline-block) only when the sidebar is in mini mode
     Adding 'smini-visible-block' to an element will show it (display: block) only when the sidebar is in mini mode
 -->
-<nav id="sidebar" aria-label="Main Navigation">
+<nav id="sidebar" aria-label="Main Navigation" style="background: #000;">
     <!-- Side Header -->
     <div class="content-header bg-white-5">
         <!-- Logo -->
         <a class="font-w600 text-dual" style="text-decoration:none" href="{{ route('dashboard.home') }}">
             <span class="smini-visible">
-                <i class="fa fa-circle-notch text-primary"></i>
+                <div style="margin-left:-5px;"><img src="{{ asset('dashboard/media/avatars/vodafone.png') }}" alt="logo" style="width:30px;height:30px;"></div>
             </span>
             <span class="smini-hide font-size-h5 tracking-wider">
                 One<span class="font-w400">UI</span>
@@ -517,28 +517,30 @@
                     </a>
                 </li>
 
-                <li class="nav-main-heading">User Interface</li>
+                <li class="nav-main-heading text-center font-weight-bold" style="color:#FC0000; font-size:14px; margin-left:-10px;">User Interface</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('categories.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-energy"></i>
-                        <span class="nav-main-link-name">Categories</span>
+                        <i class="nav-main-link-icon si si-energy text-light"></i>
+                        <span class="nav-main-link-name text-light">Categories</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-badge"></i>
-                        <span class="nav-main-link-name">Products</span>
+                        <i class="nav-main-link-icon si si-badge text-light"></i>
+                        <span class="nav-main-link-name text-light">Products</span>
                     </a>
-                    {{-- class="nav-main-submenu" --}}
-                    <ul>
+                    {{--  --}}
+                    <ul class="nav-main-submenu">
                         <li class="nav-main-item">
                             <a class="nav-main-link" style="text-decoration:none" href="{{ route('products.index') }}">
-                                <span class="nav-main-link-name">All Products</span>
+                                <i class="nav-main-link-icon si si-badge text-light"></i>
+                                <span class="nav-main-link-name text-light">All Products</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" style="text-decoration:none" href="{{ route('products.create') }}">
-                                <span class="nav-main-link-name">Add Product</span>
+                                <i class="nav-main-link-icon si si-badge text-light"></i>
+                                <span class="nav-main-link-name text-light">Add Product</span>
                             </a>
                         </li>
                         </ul>
@@ -546,20 +548,20 @@
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('categoryproduct.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-energy"></i>
-                        <span class="nav-main-link-name">All Rlations</span>
+                        <i class="nav-main-link-icon si si-energy text-light"></i>
+                        <span class="nav-main-link-name text-light">All Rlations</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('news.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-energy"></i>
-                        <span class="nav-main-link-name">News</span>
+                        <i class="nav-main-link-icon si si-energy text-light"></i>
+                        <span class="nav-main-link-name text-light">News</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" style="text-decoration:none"  href="{{ route('emails.index') }}" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-energy"></i>
-                        <span class="nav-main-link-name">Emails</span>
+                        <i class="nav-main-link-icon si si-energy text-light"></i>
+                        <span class="nav-main-link-name text-light">Emails</span>
                     </a>
                 </li>
 

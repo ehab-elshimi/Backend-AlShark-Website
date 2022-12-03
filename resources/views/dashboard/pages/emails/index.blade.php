@@ -87,26 +87,35 @@
                     <div class="pull-x">
                         <table class="js-table-checkable table  font-size-sm text-light">
                             <tbody>
-                                @foreach ($emails as $email)
-                                <tr id="row-page"onclick="myFunction({{ $email->id }})">
-                                    {{-- <td class="text-center" style="width: 60px;">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="inbox-msg15" name="inbox-msg15">
-                                            <label class="custom-control-label font-w400" for="inbox-msg15"></label>
-                                        </div>
-                                    </td> --}}
-                                    <td class="d-none d-sm-table-cell font-w600" style="width: 140px;">{{ $email->first_name.' '. $email->last_name }}</td>
-                                    <td>
-                                        <div class="font-w600 text-center text-light">{{ $email->email }}</div>
-                                    </td>
-                                    <td class="d-none d-xl-table-cell text-light" style="width: 120px;">
-                                        {{ $email->company_name . ' company'}}
-                                    </td>
-                                    <td class="d-none d-xl-table-cell text-light" style="width: 200px;">
-                                        <em>{{ $email->created_at }}</em>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                @php
+                                $isEmpty = count($emails);
+                                @endphp
+                                @if($isEmpty>0)
+                                    @foreach ($emails as $email)
+                                    <tr id="row-page"onclick="myFunction({{ $email->id }})">
+                                        {{-- <td class="text-center" style="width: 60px;">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="inbox-msg15" name="inbox-msg15">
+                                                <label class="custom-control-label font-w400" for="inbox-msg15"></label>
+                                            </div>
+                                        </td> --}}
+                                        <td class="d-none d-sm-table-cell font-w600" style="width: 140px;">{{ $email->first_name.' '. $email->last_name }}</td>
+                                        <td>
+                                            <div class="font-w600 text-center text-light">{{ $email->email }}</div>
+                                        </td>
+                                        <td class="d-none d-xl-table-cell text-light" style="width: 120px;">
+                                            {{ $email->company_name . ' company'}}
+                                        </td>
+                                        <td class="d-none d-xl-table-cell text-light" style="width: 200px;">
+                                            <em>{{ $email->created_at }}</em>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="4" class="font-weight-bold text-center">There is no emails</td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
